@@ -4,7 +4,7 @@
  *     2.test case: "     " 
  *       审题，是character不是letter, 不止26个英文字母
  *       所以不能单纯用一个长度为26的数组记录上一次出现的位置
- *      改用map
+ *       改用map
  */
 
 class Solution {
