@@ -1,0 +1,29 @@
+// 二分法
+// 踩坑记录: 1. mid * mid 当 mid = 1073697799时会overflow
+//          2. x / mid 当 mid = 0 时 division by zero
+class Solution {
+public:
+    int mySqrt(int x) {
+        int left = 0;
+        int right = x;
+        int mid = (left + right) / 2;
+        int result = x;
+        
+        // special case:
+        if (x <= 1)
+            return x;
+
+        while (left <= right) {
+            mid = (left + right) / 2;
+            if (mid == x / mid)
+                return mid;
+            else if (mid > x / mid)
+                right = mid - 1;
+            else {
+                result = mid;
+                left = mid + 1;
+            }
+        }
+        return result;
+    }
+};
